@@ -1,4 +1,5 @@
 #!/bin/bash
+FLEXPATH="E:\Components\flex_sdk_4.6"
 if [ -z "$FLEXPATH" ]; then
   echo "Usage FLEXPATH=/path/to/flex/sdk sh ./build.sh"
   exit
