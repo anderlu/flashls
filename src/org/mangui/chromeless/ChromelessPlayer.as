@@ -496,6 +496,7 @@ package org.mangui.chromeless {
         /** StageVideo detector. **/
         protected function _onStageVideoState(event : StageVideoAvailabilityEvent) : void {
             var available : Boolean = (event.availability == StageVideoAvailability.AVAILABLE);
+            HLSSettings.logDebug=true;
             _hls = new HLS();
             _hls.stage = stage;
             // set framerate to 60 fps
