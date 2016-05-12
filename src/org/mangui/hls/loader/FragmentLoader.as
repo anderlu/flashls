@@ -456,7 +456,8 @@ package org.mangui.hls.loader {
                 CONFIG::LOGGING {
                     Log.warn("error parsing fragment, skip it and load next one");
                 }
-                var tags : Vector.<FLVTag> = tags = new Vector.<FLVTag>();
+                var tags : Vector.<FLVTag>;
+                tags = new Vector.<FLVTag>();
                 tags.push(_fragCurrent.getSkippedTag());
                 // send skipped FLV tag to StreamBuffer
                 _streamBuffer.appendTags(HLSLoaderTypes.FRAGMENT_MAIN,_fragCurrent.level,_fragCurrent.seqnum ,tags,_fragCurrent.data.pts_start_computed, _fragCurrent.data.pts_start_computed + 1000*_fragCurrent.duration, _fragCurrent.continuity, _fragCurrent.start_time);
@@ -538,7 +539,8 @@ package org.mangui.hls.loader {
                         CONFIG::LOGGING {
                             Log.warn("max fragment load retry reached, skip fragment and load next one.");
                         }
-                        var tags : Vector.<FLVTag> = tags = new Vector.<FLVTag>();
+                        var tags : Vector.<FLVTag> ;
+                            tags = new Vector.<FLVTag>();
                         tags.push(_fragCurrent.getSkippedTag());
                         // send skipped FLV tag to StreamBuffer
                         _streamBuffer.appendTags(HLSLoaderTypes.FRAGMENT_MAIN,_fragCurrent.level,_fragCurrent.seqnum ,tags,_fragCurrent.data.pts_start_computed, _fragCurrent.data.pts_start_computed + 1000*_fragCurrent.duration, _fragCurrent.continuity, _fragCurrent.start_time);
@@ -1029,7 +1031,7 @@ package org.mangui.hls.loader {
                          */
                         var next_pts:Number;
                         var next_seqnum:Number;
-                        
+
                         // Resolves intermittent issue that causes the player to crash due to missing previous fragment data while seeking
                         if (_fragPrevious && _fragPrevious.data) {
                             next_pts = _fragPrevious.data.pts_start_computed + 1000*_fragPrevious.duration;
@@ -1039,7 +1041,7 @@ package org.mangui.hls.loader {
                                 Log.debug("Previous fragment data not found while analyzing PTS!");
                             }
                         }
-                        
+
                         CONFIG::LOGGING {
                             Log.debug("analyzed PTS : getSeqNumNearestPTS(level,pts,cc:" + _hls.loadLevel + "," + next_pts + "," + _fragCurrent.continuity + ")=" + next_seqnum);
                         }

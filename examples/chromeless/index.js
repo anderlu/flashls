@@ -110,6 +110,9 @@ window.flashlsCallback = function(eventName, args) {
 };
 
 var flashlsEvents = {
+    /*levelEndlist: function () {
+      console.log('shit****',arguments);
+    },*/
     ready: function(flashTime) {
         flashPingDate = flashTime;
         jsPingDate = new Date();
