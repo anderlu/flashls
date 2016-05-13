@@ -148,7 +148,7 @@ package org.mangui.chromeless {
         protected function _trigger(event : String, ...args) : void {
             if (ExternalInterface.available) {
                 try {
-                    ExternalInterface.call(_callbackName, event, args);
+                    //ExternalInterface.call(_callbackName, event, args);
                 }catch(error:Error) {
                     Log.error("***ExternalInterface.call error***:" + error.message);
                     Log.error("***ExternalInterface.call event***:" + event);
